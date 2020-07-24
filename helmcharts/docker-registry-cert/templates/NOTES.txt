@@ -1,0 +1,1 @@
+Give it a bit of time and a cert for your docker registry should be available under the name of {{.Values.certName}}.
