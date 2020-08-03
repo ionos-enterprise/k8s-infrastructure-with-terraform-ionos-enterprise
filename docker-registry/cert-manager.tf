@@ -1,3 +1,9 @@
+resource "kubernetes_namespace" "docker-registry" {
+  metadata {
+    name = var.namespace
+  }
+}
+
 resource "kubernetes_namespace" "certmanager-namespace" {
   metadata {
     name = "cert-manager"
@@ -15,7 +21,6 @@ resource "helm_release" "docker-registry-certs" {
   name  = "docker-registry-certs"
   chart = "../helmcharts/docker-registry-cert"
   namespace = var.namespace
-  version = "v0.15.1"
 
   set {
     name = "domain"

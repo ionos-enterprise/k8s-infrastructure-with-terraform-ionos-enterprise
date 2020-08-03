@@ -9,7 +9,7 @@ However, there are still a couple of installation steps that have to get process
 1. Installation of Customer Resource Definitions for the Cert-Manager:
 
     ```
-    kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.crds.yaml
+    kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.crds.yaml
     ```
    
 1. Adding the Helm Repository of the Cert-Manager:

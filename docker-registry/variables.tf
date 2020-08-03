@@ -1,5 +1,5 @@
 variable "docker-registry-domain" {
-  default = ""
+  default = "your-domain"
 }
 
 variable "ingress-enabled" {
@@ -27,5 +27,5 @@ variable "docker-registry-cert" {
 }
 
 variable "namespace" {
-  default = "docker-registry"
+  default = "docker-registry-new"
 }

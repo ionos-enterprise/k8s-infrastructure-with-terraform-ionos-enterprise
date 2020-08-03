@@ -1,9 +1,3 @@
-resource "kubernetes_namespace" "docker-registry" {
-  metadata {
-    name = var.namespace
-  }
-}
-
 resource "kubernetes_config_map" "docker-registry-config" {
   metadata {
     name = "docker-registry-config"
