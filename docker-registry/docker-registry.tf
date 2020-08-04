@@ -1,4 +1,11 @@
+resource "kubernetes_namespace" "docker-registry" {
+  metadata {
+    name = var.namespace
+  }
+}
+
 resource "kubernetes_config_map" "docker-registry-config" {
+  depends_on = [ kubernetes_namespace.docker-registry ]
   metadata {
     name = "docker-registry-config"
     namespace = var.namespace
@@ -9,6 +16,7 @@ resource "kubernetes_config_map" "docker-registry-config" {
 }
 
 resource "kubernetes_secret" "docker-registry-secret" {
+  depends_on = [ kubernetes_namespace.docker-registry ]
   metadata {
     name = "docker-registry-secret"
     namespace = var.namespace
@@ -20,6 +28,7 @@ resource "kubernetes_secret" "docker-registry-secret" {
 }
 
 resource "kubernetes_secret" "docker-registry-dockerconfig" {
+  depends_on = [ kubernetes_namespace.docker-registry ]
   metadata {
     name = "docker-registry-dockerconfig"
     namespace = var.namespace
@@ -33,6 +42,7 @@ resource "kubernetes_secret" "docker-registry-dockerconfig" {
 }
 
 resource "kubernetes_deployment" "docker-registry" {
+  depends_on = [ kubernetes_namespace.docker-registry ]
   metadata {
     name = var.namespace
     namespace = var.namespace
@@ -100,6 +110,7 @@ resource "kubernetes_deployment" "docker-registry" {
 }
 
 resource "kubernetes_service" "docker-registry" {
+  depends_on = [ kubernetes_namespace.docker-registry ]
   metadata {
     name = "docker-registry"
     namespace = var.namespace
@@ -118,6 +129,7 @@ resource "kubernetes_service" "docker-registry" {
 }
 
 resource "kubernetes_ingress" "docker-registry" {
+  depends_on = [ kubernetes_namespace.docker-registry ]
   metadata {
     name = "docker-registry"
     namespace = var.namespace

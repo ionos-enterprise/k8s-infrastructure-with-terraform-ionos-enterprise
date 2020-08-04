@@ -1,5 +1,9 @@
 # Installation of Docker Registry with external domain and TLS
 
+## Prerequisits
+
+- Your cluster needs to have an Ingress Controller installed. The external Domain you want to use for your registry needs to point to the external IP of your Loadbalancer Service.
+
 ## Introduction
 
 The installation is mostly automated with Terraform leveraging the Kubernetes and Helm providers.
