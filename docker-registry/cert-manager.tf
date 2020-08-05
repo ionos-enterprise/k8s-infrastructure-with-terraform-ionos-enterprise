@@ -14,7 +14,7 @@ resource "helm_release" "cert-manager" {
 resource "helm_release" "docker-registry-certs" {
   name  = "docker-registry-certs"
   chart = "../helmcharts/docker-registry-cert"
-  namespace = var.namespace
+  namespace = "docker-registry"
   depends_on = [
     kubernetes_namespace.docker-registry
   ]

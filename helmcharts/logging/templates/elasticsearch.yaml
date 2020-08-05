@@ -1,0 +1,29 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+    name: elastic
+    namespace: {{ .Values.namespace }}
+spec:
+    version: 7.7.0
+    nodeSets:
+        - name: default
+          count: {{ .Values.elasticsearch.replicaCount }}
+          config:
+              node.master: true
+              node.data: true
+              node.ingest: true
+              node.store.allow_mmap: false
+          volumeClaimTemplates:
+              - apiVersion: elasticsearch.k8s.elastic.co/v1
+                kind: Elasticsearch
+                metadata:
+                    name: elastic
+                spec:
+                    accessModes:
+                        - ReadWriteOnce
+                    resources:
+                        requests:
+                            storage: {{ .Values.elasticsearch.storageSize }}
+                    storageClassName: ionos-enterprise-hdd
+                    volumeMode: Filesystem
+

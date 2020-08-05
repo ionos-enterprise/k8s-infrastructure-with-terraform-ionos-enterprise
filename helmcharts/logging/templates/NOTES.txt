@@ -1,0 +1,9 @@
+Installation started - completion will take a couple of minutes!
+
+Check Elastic Search status with:
+
+kubectl get elastic -n {{ .Values.namespace }}
+
+Check Kibana status with:
+
+kubectl get kibana -n {{ .Values.namespace }}

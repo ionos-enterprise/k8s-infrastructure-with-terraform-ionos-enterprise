@@ -1,0 +1,10 @@
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+    name: elastic
+    namespace: {{ .Values.namespace }}
+spec:
+    version: 7.7.0
+    count: {{ .Values.kibana.replicaCount }}
+    elasticsearchRef:
+        name: elastic

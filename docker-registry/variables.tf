@@ -27,5 +27,5 @@ variable "docker-registry-cert" {
 }
 
 variable "namespace" {
-  default = "docker-registry-new"
+  default = "docker-registry"
 }
