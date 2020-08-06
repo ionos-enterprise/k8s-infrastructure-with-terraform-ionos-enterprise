@@ -2,6 +2,10 @@ resource "helm_release" "metrics-server" {
 
   name  = "metrics-server"
   chart = "stable/metrics-server"
-  namespace = "kube-system"
+  namespace = var.namespace
 
+}
+
+variable "namespace" {
+  default = "kube-system"
 }
