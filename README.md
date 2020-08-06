@@ -8,3 +8,4 @@ A bunch of infrastructure that can be installed to K8s Clusters using Terraform.
 * [metrics-service](./basic)
 * [docker-registry](./docker-registry)
 * [logging](./logging)
+* [monitoring](./monitoring)
